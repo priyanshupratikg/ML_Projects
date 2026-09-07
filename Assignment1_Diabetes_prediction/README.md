@@ -584,7 +584,3 @@ This project was developed by **Team Vajra**.
 | **Sarbajeet Sahoo** | 2341019148 |
 
 
-Since your current app is working without asking the user for DPF, the README should describe exactly what your app does rather than imply a medical calculation that doesn't exist.
-
-If your current `app.py` uses a **fixed/internal DPF value**, we should document that honestly (and ideally improve the model pipeline later).
-```
