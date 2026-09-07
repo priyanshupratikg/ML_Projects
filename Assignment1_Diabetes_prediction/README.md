@@ -1,5 +1,7 @@
 # 🩺 DiabDetect – Diabetes Risk Prediction System
 
+### Developed by Team Vajra
+
 ### Machine Learning Based Diabetes Risk Prediction Web Application
 
 DiabDetect is a machine-learning-based diabetes risk prediction system developed as an academic project. The application analyzes clinical measurements provided by a user and predicts the likelihood of diabetes using a trained and tuned Random Forest Classification model.
@@ -533,14 +535,7 @@ Streamlit Deployment
 
 ---
 
-# 👨‍💻 Author
 
-### Priyanshu Pratik
-
-Machine Learning Project
-MLPWP – 4th Year
-
----
 
 # 🔗 Project Links
 
@@ -576,19 +571,18 @@ MLPWP – 4th Year
 * GitHub version control
 * Temporary public deployment using ngrok
 
----
 
-## 📌 Status
+# 👥 Team Vajra
 
-**Project Status: Completed ✅**
+This project was developed by **Team Vajra**.
 
-The machine learning pipeline and interactive Streamlit application have been implemented and integrated into a complete diabetes-risk prediction system.
+| Name | Registration Number |
+|---|---:|
+| **Priyanshu Pratik** | 2341016436 |
+| **Tushar Mallick** | 2341013092 |
+| **Aditya Prasad Mishra** | 2341013147 |
+| **Sarbajeet Sahoo** | 2341019148 |
 
-```
-
-### One correction I recommend before putting this README on GitHub
-
-There is one technically important point in the README above: **don't claim that DPF is mathematically calculated from the patient's other inputs unless your `app.py` actually implements such a calculation.** The original Diabetes Pedigree Function is a dataset feature based on family-history information; it isn't normally something that can be reliably derived from glucose/BMI/age/etc.
 
 Since your current app is working without asking the user for DPF, the README should describe exactly what your app does rather than imply a medical calculation that doesn't exist.
 
