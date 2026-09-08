@@ -771,35 +771,4 @@ The project combines data preprocessing, exploratory analysis, traditional machi
 
 The final tuned Random Forest model provides the prediction engine for the deployed Streamlit application.
 
-### 🌐 Live Demo
 
-[https://diabdetect-vajra.streamlit.app/](https://diabdetect-vajra.streamlit.app/)
-
----
-
-## 👥 Team Vajra
-
-**Priyanshu Partik**
-**Tushar Mallick**
-**Aditya Prasad Mishra**
-**Sarbajeet Sahoo**
-
----
-
-### 🩺 DiabDetect
-
-**Intelligent Diabetes Risk Prediction**
-**By Vajra**
-
-```
-
-### One important thing
-
-For GitHub, I'd recommend putting the **live app link right at the very top** of the README as a prominent **"🚀 Live Demo"** section. That way, your professor can open the repository and immediately click through to the working application.
-
-Your actual live link is:
-
-:contentReference[oaicite:2]{index=2}
-
-And because your app is now hosted on Streamlit Cloud, **you can close VS Code and even shut down your laptop—the deployed link remains independently accessible.**
-```
