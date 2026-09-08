@@ -1,75 +1,90 @@
+
 # 🩺 DiabDetect – Diabetes Risk Prediction System
 
-### Developed by Team Vajra
+### Machine Learning & Multilayer Perceptron Based Diabetes Prediction
 
-### Machine Learning Based Diabetes Risk Prediction Web Application
+**Developed by Team Vajra**
 
-DiabDetect is a machine-learning-based diabetes risk prediction system developed as an academic project. The application analyzes clinical measurements provided by a user and predicts the likelihood of diabetes using a trained and tuned Random Forest Classification model.
+DiabDetect is a machine-learning-based diabetes risk prediction system developed as an academic project. The system analyzes clinical measurements provided by a user and predicts whether the individual is likely to belong to the diabetic or non-diabetic class.
 
-The project combines:
+The project demonstrates the complete machine learning lifecycle:
 
+- Dataset understanding
+- Exploratory Data Analysis (EDA)
 - Data preprocessing
-- Missing-value treatment
+- Missing/suspicious value handling
+- Outlier analysis
 - Feature scaling
-- Machine learning model training
+- Machine learning model development
+- Multilayer Perceptron (MLP) development
+- Model comparison
 - Hyperparameter tuning
-- Model evaluation
-- Model serialization
-- Streamlit web application
-- Responsive desktop and mobile interface
+- Final model selection
+- Model persistence
+- Streamlit deployment
 
 ---
 
-## 🌐 Live Application
+# 🌐 Live Demo
 
-### 💻 PC / Laptop
+## 🚀 Access DiabDetect Online
 
-👉 **[Open DiabDetect on PC](https://obscurity-hardly-wanted.ngrok-free.dev)**
+The application is deployed using Streamlit Community Cloud and can be accessed directly through a web browser.
 
-### 📱 Mobile Phone
+**Live Application:**
 
-👉 **[Open DiabDetect on Mobile](https://obscurity-hardly-wanted.ngrok-free.dev)**
+https://diabdetect-vajra.streamlit.app/
 
-> **Note:** Both links open the same responsive web application. The interface automatically adapts to desktop, tablet and mobile screen sizes.
+No local installation or VS Code setup is required to use the deployed application.
 
-> ⚠️ **Important:** The live link is provided through an ngrok tunnel. It will only work while the Streamlit application and ngrok tunnel are running on the host computer. The URL may change when a new ngrok session is started.
+---
+
+# 👥 Team Vajra
+
+| Team Member | Roll Number |
+|---|---|
+| **Priyanshu Partik** | 2341016436 |
+| **Tushar Mallick** | 2341013092 |
+| **Aditya Prasad Mishra** | 2341013147 |
+| **Sarbajeet Sahoo** | 2341019148 |
 
 ---
 
 # 📌 Project Overview
 
-Diabetes is a chronic condition that requires early identification and proper medical attention. Machine learning can be used to analyze clinical measurements and identify patterns associated with diabetes.
+Diabetes is a chronic medical condition in which the body is unable to properly regulate blood glucose levels. Early identification of diabetes risk can help support timely medical attention and lifestyle management.
 
-The objective of this project is to develop an end-to-end machine learning system that:
+The objective of DiabDetect is to build a predictive classification system using patient clinical measurements.
 
-1. Loads the diabetes dataset.
-2. Performs data preprocessing.
-3. Handles suspicious zero values.
-4. Performs missing-value imputation.
-5. Scales numerical features.
-6. Trains multiple machine learning models.
-7. Compares model performance.
-8. Tunes the selected model.
-9. Saves the trained model and preprocessing objects.
-10. Integrates the final model into a Streamlit application.
-11. Provides an interactive diabetes-risk prediction interface.
+The project uses the **Pima Indians Diabetes Dataset**, a commonly used dataset for demonstrating binary classification techniques.
+
+The system predicts one of two classes:
+
+- **0 → Non-Diabetic**
+- **1 → Diabetic**
+
+The final prediction is generated using a tuned Random Forest classification model.
 
 ---
 
 # 🎯 Objectives
 
-The main objectives of the project are:
+The main objectives of this project are:
 
-- To understand and preprocess a real-world medical dataset.
-- To identify invalid or suspicious values.
-- To handle missing values appropriately.
-- To normalize/standardize numerical features.
-- To train different machine learning algorithms.
-- To compare their performance.
-- To select and tune an appropriate final model.
-- To save the trained model for deployment.
-- To build an interactive prediction application.
-- To provide a responsive interface usable on both PC and mobile devices.
+1. Understand and analyze the diabetes dataset.
+2. Identify missing, suspicious, and abnormal values.
+3. Perform exploratory data analysis.
+4. Handle missing values appropriately.
+5. Analyze and handle outliers.
+6. Prepare the data for machine learning.
+7. Apply feature scaling.
+8. Train multiple machine learning algorithms.
+9. Build and evaluate a Multilayer Perceptron (MLP).
+10. Compare different models using multiple evaluation metrics.
+11. Tune the selected model.
+12. Save the trained model and preprocessing objects.
+13. Develop a user-friendly prediction interface.
+14. Deploy the application using Streamlit Community Cloud.
 
 ---
 
@@ -77,65 +92,142 @@ The main objectives of the project are:
 
 The project uses the **Pima Indians Diabetes Dataset**.
 
-The dataset contains clinical measurements that can be used to predict whether a patient belongs to the diabetic or non-diabetic class.
+The dataset contains:
 
-### Features
+- **768 observations**
+- **8 input features**
+- **1 target variable**
+
+## Features
 
 | Feature | Description |
 |---|---|
-| Pregnancies | Number of pregnancies |
-| Glucose | Plasma glucose concentration |
-| BloodPressure | Diastolic blood pressure |
-| SkinThickness | Triceps skin fold thickness |
-| Insulin | Serum insulin level |
-| BMI | Body Mass Index |
-| DiabetesPedigreeFunction | Diabetes pedigree function |
-| Age | Patient age |
-| Outcome | Diabetes class (0 or 1) |
+| `Pregnancies` | Number of pregnancies |
+| `Glucose` | Plasma glucose concentration |
+| `BloodPressure` | Diastolic blood pressure |
+| `SkinThickness` | Triceps skin fold thickness |
+| `Insulin` | 2-Hour serum insulin |
+| `BMI` | Body Mass Index |
+| `DiabetesPedigreeFunction` | Diabetes pedigree function |
+| `Age` | Age of the patient |
+| `Outcome` | Target variable |
 
----
+### Target Variable
 
-# 🔬 Data Preprocessing
-
-Data preprocessing was performed before training the machine learning models.
-
-## 1. Suspicious Zero Values
-
-Some features in the dataset cannot realistically have a value of zero.
-
-For example:
-
-- Glucose
-- Blood Pressure
-- Skin Thickness
-- Insulin
-- BMI
-
-Therefore, suspicious zero values were treated as missing values rather than valid measurements.
-
----
-
-## 2. Missing Value Imputation
-
-After identifying suspicious zero values, the missing values were handled using **median imputation**.
-
-Median imputation was selected because medical datasets can contain extreme values, and the median is less affected by outliers than the mean.
-
-The trained imputer was saved as:
+`Outcome` is a binary classification variable:
 
 ```text
-models/median_imputer.pkl
+0 = Non-Diabetic
+1 = Diabetic
 ````
 
 ---
 
-## 3. Feature Scaling
+# 🔍 Exploratory Data Analysis
 
-Numerical features were standardized using **StandardScaler**.
+Before training the models, the dataset was extensively analyzed.
 
-Standardization transforms the features so that they are on a comparable scale.
+The analysis included:
 
-The fitted scaler was saved as:
+* Dataset dimensions
+* Data types
+* Statistical summary
+* Target distribution
+* Feature distributions
+* Correlation analysis
+* Missing/suspicious value analysis
+* Outlier detection
+
+EDA was performed to understand the characteristics of the dataset and identify issues that could negatively affect model performance.
+
+---
+
+# 🧹 Data Preprocessing
+
+Data preprocessing was an important part of the project.
+
+## 1. Suspicious Zero Values
+
+Several clinical measurements cannot realistically have a value of zero.
+
+The following features were therefore treated as having suspicious zero values:
+
+* Glucose
+* BloodPressure
+* SkinThickness
+* Insulin
+* BMI
+
+A zero in these columns was treated as a missing value rather than a valid measurement.
+
+`Pregnancies = 0`, however, is a valid value and was retained.
+
+---
+
+## 2. Missing Value Handling
+
+After identifying suspicious zero values, they were converted into missing values.
+
+Median imputation was then applied.
+
+### Why Median Imputation?
+
+Median imputation was selected because it:
+
+* Preserves the number of observations.
+* Is simple and robust.
+* Is less sensitive to extreme values than mean imputation.
+* Works well when clinical variables contain outliers.
+
+The trained imputer is saved as:
+
+```text
+models/median_imputer.pkl
+```
+
+---
+
+# 📈 Outlier Analysis
+
+Outliers were investigated using statistical and visual analysis.
+
+Particular attention was given to clinical features such as:
+
+* Pregnancies
+* Glucose
+* BloodPressure
+* SkinThickness
+* Insulin
+* BMI
+* Age
+
+Outliers were analyzed carefully rather than blindly removing them because extreme clinical values may represent genuine patient conditions.
+
+---
+
+# 📏 Feature Scaling
+
+After missing-value treatment, feature scaling was applied using:
+
+```text
+StandardScaler
+```
+
+Standardization transforms features so that they have approximately:
+
+```text
+Mean = 0
+Standard Deviation = 1
+```
+
+This is especially useful for models such as:
+
+* Logistic Regression
+* SVM
+* KNN
+* MLP
+
+The trained scaler is saved as:
 
 ```text
 models/standard_scaler.pkl
@@ -143,19 +235,81 @@ models/standard_scaler.pkl
 
 ---
 
-# 🤖 Machine Learning
+# 🤖 Machine Learning Models
 
-Multiple machine learning algorithms were considered and evaluated during the project.
+Multiple classification algorithms were trained and compared.
 
-The objective was to compare different approaches and select a suitable model for the final application.
+The project evaluated:
 
-The final deployed model is a:
+1. Logistic Regression
+2. K-Nearest Neighbors (KNN)
+3. Decision Tree
+4. Support Vector Machine (SVM)
+5. Random Forest
+6. Gradient Boosting
 
-## 🌲 Tuned Random Forest Classifier
+A Multilayer Perceptron (MLP) was also developed as the neural-network-based model.
 
-Random Forest was selected as the final model after model comparison and tuning.
+---
 
-The trained model was saved as:
+# 🧠 Multilayer Perceptron
+
+A Multilayer Perceptron is a type of artificial neural network used for classification and regression tasks.
+
+The MLP consists conceptually of:
+
+```text
+Input Layer
+     ↓
+Hidden Layer(s)
+     ↓
+Output Layer
+```
+
+The input layer receives the clinical features.
+
+The hidden layers learn relationships between the features.
+
+The output layer produces the final binary classification.
+
+The MLP was evaluated independently and compared with traditional machine learning models.
+
+---
+
+# 🏆 Model Comparison
+
+The main machine learning models produced the following evaluation results:
+
+| Model               |  Accuracy | Precision |    Recall |  F1-Score |   ROC-AUC |
+| ------------------- | --------: | --------: | --------: | --------: | --------: |
+| Gradient Boosting   |     88.8% |     78.4% |     93.0% |     85.1% |     96.7% |
+| **Random Forest**   | **90.2%** | **80.4%** | **95.3%** | **87.2%** | **95.9%** |
+| SVM                 |     87.8% |     78.2% |     88.4% |     83.5% |     94.2% |
+| Logistic Regression |     82.9% |     82.4% |     65.1% |     72.7% |     91.0% |
+| KNN                 |     84.6% |     78.6% |     76.7% |     77.6% |     90.2% |
+| Decision Tree       |     81.3% |     69.2% |     83.7% |     77.8% |     81.9% |
+
+Based on the evaluation results, **Random Forest** was selected as the final model.
+
+---
+
+# 🌲 Final Model – Random Forest
+
+The final deployed prediction system uses a tuned:
+
+```text
+Random Forest Classifier
+```
+
+The final model uses:
+
+```text
+300 estimators
+```
+
+Random Forest was selected because it provided strong overall performance across the evaluation metrics, particularly accuracy, recall, and F1-score.
+
+The trained model is stored as:
 
 ```text
 models/final_random_forest.pkl
@@ -163,174 +317,106 @@ models/final_random_forest.pkl
 
 ---
 
-# ⚙️ Hyperparameter Tuning
+# 📦 Saved Model Artifacts
 
-Hyperparameter tuning was performed to improve the performance of the Random Forest classifier.
-
-Important Random Forest parameters include:
-
-* Number of estimators
-* Maximum depth
-* Minimum samples required for splitting
-* Minimum samples required at a leaf
-* Feature selection strategy
-
-The final application uses the tuned Random Forest model rather than training a new model every time a prediction is requested.
-
----
-
-# 🧠 Prediction Pipeline
-
-The deployed application follows the following pipeline:
+The project stores the trained model and preprocessing components so that the application does not need to retrain the model every time it starts.
 
 ```text
-User Input
-     ↓
-Input Validation
-     ↓
-Feature Preparation
-     ↓
-Missing Value Handling
-     ↓
-Standard Scaling
-     ↓
-Trained Random Forest Model
-     ↓
-Prediction Probability
-     ↓
-Risk Classification
-     ↓
-Result Display
+models/
+│
+├── final_random_forest.pkl
+├── median_imputer.pkl
+└── standard_scaler.pkl
 ```
+
+### `final_random_forest.pkl`
+
+Contains the trained final Random Forest classifier.
+
+### `median_imputer.pkl`
+
+Contains the fitted median imputation object used during preprocessing.
+
+### `standard_scaler.pkl`
+
+Contains the fitted StandardScaler used to standardize the input features.
 
 ---
 
-# 🖥️ Web Application
+# 🖥️ Streamlit Application
 
 The user interface was developed using **Streamlit**.
 
-The application provides an interactive interface where users can enter patient information and clinical measurements.
+The application provides a simple clinical assessment interface where the user can enter patient information and clinical measurements.
 
-### Patient Information
+The application includes:
 
-The application accepts:
-
-* Patient Name
-* Gender
-
-### Clinical Measurements
-
-The application accepts:
-
-* Glucose
-* Blood Pressure
-* Skin Thickness
-* Insulin
-* BMI
-* Age
-
-### Pregnancy Handling
-
-The number of pregnancies is displayed only when the selected gender is **Female**.
-
-For male users, the pregnancy field is automatically excluded from the interface and handled appropriately by the application.
+* DiabDetect branding
+* Patient information section
+* Gender selection
+* Clinical measurements
+* Prediction button
+* Predicted diabetes class
+* Estimated model probability
+* Educational-use disclaimer
 
 ---
 
-# 📏 Input Validation
+# 🔄 Prediction Pipeline
 
-The application provides the expected dataset ranges below the relevant input fields.
-
-This helps users understand the acceptable range of values before submitting the prediction.
-
-The application also performs validation to prevent clearly invalid inputs from being submitted.
-
-Examples include:
-
-* Negative clinical measurements
-* Values outside the supported range
-* Missing required patient information
-* Invalid age
-* Invalid pregnancy count
-
----
-
-# 📈 Prediction Output
-
-After the user submits the clinical measurements, the application displays:
-
-* Patient name
-* Predicted diabetes-risk class
-* Estimated probability
-* Prediction explanation
-
-Example:
+When a user enters clinical information, the application follows the same preprocessing pipeline used during model development.
 
 ```text
-Prediction Result
-
-Patient: Example Patient
-
-Higher Diabetes Risk
-
-Estimated diabetes probability: 81.91%
+User Input
+    ↓
+Clinical Measurements
+    ↓
+Missing/Suspicious Value Handling
+    ↓
+Median Imputation
+    ↓
+Standard Scaling
+    ↓
+Trained Random Forest Model
+    ↓
+Prediction
+    ↓
+Probability Estimate
+    ↓
+Result Display
 ```
 
-The probability is generated by the trained Random Forest classifier.
-
----
-
-# 🧮 Diabetes Pedigree Function
-
-The original dataset contains the feature:
-
-```text
-DiabetesPedigreeFunction
-```
-
-However, this is not a practical value for a normal user to manually calculate.
-
-Therefore, the application interface does **not require the user to enter the Diabetes Pedigree Function manually**.
-
-The application handles the feature internally according to the project's prediction pipeline.
-
-This keeps the interface simpler and more user-friendly.
+This ensures that the data supplied to the trained model is processed consistently with the training data.
 
 ---
 
 # 📁 Project Structure
 
 ```text
-Assignment1_Diabetes_prediction/
+ML_Projects/
 │
-├── app/
-│   └── app.py
+├── Assignment1_Diabetes_prediction/
+│   │
+│   ├── app/
+│   │   └── app.py
+│   │
+│   ├── models/
+│   │   ├── final_random_forest.pkl
+│   │   ├── median_imputer.pkl
+│   │   └── standard_scaler.pkl
+│   │
+│   ├── notebooks/
+│   │   └── diabetes_prediction.ipynb
+│   │
+│   └── ...
 │
-├── data/
-│   └── diabetes.csv
-│
-├── models/
-│   ├── final_random_forest.pkl
-│   ├── median_imputer.pkl
-│   └── standard_scaler.pkl
-│
-├── notebooks/
-│   └── diabetes_prediction.ipynb
-│
-├── results/
-│
-├── visualizations/
-│
-├── .gitignore
-│
-├── README.md
-│
-└── requirements.txt
+├── requirements.txt
+└── README.md
 ```
 
 ---
 
-# 🛠️ Technologies Used
+# ⚙️ Technologies Used
 
 ## Programming Language
 
@@ -343,244 +429,377 @@ Assignment1_Diabetes_prediction/
 * Scikit-learn
 * Joblib
 * Streamlit
+* Matplotlib
+* Seaborn
 
-## Development Tools
+## Machine Learning
 
-* Visual Studio Code
-* Jupyter Notebook
-* Git
+* Logistic Regression
+* KNN
+* Decision Tree
+* SVM
+* Random Forest
+* Gradient Boosting
+* Multilayer Perceptron
+
+## Deployment
+
+* Streamlit Community Cloud
 * GitHub
-* ngrok
 
 ---
 
-# 📦 Installation
+# 📋 Requirements
 
-Clone the repository:
+The project dependencies are specified in:
 
-```bash
-git clone https://github.com/priyanshupratikg/ML_Projects.git
+```text
+requirements.txt
 ```
 
-Move into the project directory:
+Main dependencies include:
+
+```text
+streamlit==1.63.0
+pandas
+numpy
+scikit-learn==1.6.1
+joblib==1.5.3
+```
+
+---
+
+# 💻 Running the Project Locally
+
+## Step 1 – Clone the Repository
+
+Clone the GitHub repository to your local machine.
+
+## Step 2 – Navigate to the Project
+
+Open a terminal in the project directory.
 
 ```bash
 cd ML_Projects/Assignment1_Diabetes_prediction
 ```
 
----
-
-# 🐍 Create Virtual Environment
-
-Create a virtual environment:
+## Step 3 – Install Dependencies
 
 ```bash
-python -m venv .venv
+pip install -r ../requirements.txt
 ```
 
-Activate it on Windows:
-
-```powershell
-.venv\Scripts\activate
-```
-
----
-
-# 📚 Install Dependencies
-
-Install all required packages:
+If the requirements file is located in the current directory, use:
 
 ```bash
 pip install -r requirements.txt
 ```
 
----
-
-# ▶️ Run the Application
-
-From the project directory, run:
+## Step 4 – Run Streamlit
 
 ```bash
 streamlit run app/app.py
 ```
 
-The application will normally open at:
-
-```text
-http://localhost:8501
-```
+The application will open in a browser.
 
 ---
 
-# 🌍 Access From Another Device
+# ☁️ Deployment
 
-To make the application temporarily accessible from another device, an ngrok tunnel can be used.
+The application is deployed using **Streamlit Community Cloud**.
 
-First start Streamlit:
-
-```bash
-streamlit run app/app.py
-```
-
-Then open another terminal and run:
-
-```bash
-ngrok http 8501
-```
-
-ngrok will generate a public forwarding URL similar to:
+The deployment architecture is:
 
 ```text
-https://example.ngrok-free.dev
+GitHub Repository
+       ↓
+Streamlit Community Cloud
+       ↓
+Python Environment
+       ↓
+Streamlit Application
+       ↓
+Public Web URL
 ```
 
-Open that URL on:
+The application is hosted independently of the development laptop.
 
-* PC
+Therefore, users do not need:
+
+* VS Code
+* Local Python environment
+* Local Streamlit server
+* ngrok
+* The developer's laptop
+
+to access the deployed application.
+
+---
+
+# 🌐 Live Application
+
+### DiabDetect – Vajra
+
+[https://diabdetect-vajra.streamlit.app/](https://diabdetect-vajra.streamlit.app/)
+
+The application can be accessed from:
+
+* Desktop
 * Laptop
-* Android phone
-* iPhone
 * Tablet
+* Mobile browser
 
-provided the ngrok session and Streamlit application are still running.
-
----
-
-# 📱 Responsive Design
-
-The application interface has been designed to work across different screen sizes.
-
-### Desktop
-
-The desktop version provides:
-
-* Sidebar navigation
-* Two-column clinical measurement layout
-* Detailed prediction result
-* Full-width controls
-
-### Mobile
-
-The responsive layout adapts the interface for smaller screens.
-
-Users can access the application through a mobile browser without installing a separate application.
-
-Supported devices include:
-
-* Android smartphones
-* iPhones
-* Tablets
-* Laptops
-* Desktop computers
+provided there is an internet connection.
 
 ---
 
-# 🔐 Privacy & Security
+# 📊 Evaluation Metrics
 
-This project is intended for academic and demonstration purposes.
+The models were evaluated using multiple classification metrics.
 
-Users should not enter sensitive personal medical information into a publicly accessible demo deployment.
+## Accuracy
 
-The public ngrok link should be considered a temporary demonstration endpoint rather than a production medical service.
+Measures the overall percentage of correct predictions.
+
+```text
+Accuracy =
+Correct Predictions / Total Predictions
+```
+
+## Precision
+
+Measures how many of the observations predicted as positive were actually positive.
+
+```text
+Precision =
+TP / (TP + FP)
+```
+
+## Recall
+
+Measures how many of the actual positive cases were correctly identified.
+
+```text
+Recall =
+TP / (TP + FN)
+```
+
+## F1-Score
+
+The harmonic mean of precision and recall.
+
+```text
+F1 =
+2 × Precision × Recall / (Precision + Recall)
+```
+
+## ROC-AUC
+
+Measures the model's ability to distinguish between the two classes across different classification thresholds.
 
 ---
 
-# ⚠️ Important Medical Disclaimer
+# 🧪 MLP Evaluation
 
-**DiabDetect is an academic machine learning project and is NOT a medical diagnostic system.**
+The developed MLP produced the following evaluation results:
 
-The prediction generated by this application should not be considered a medical diagnosis.
+| Metric    | Result |
+| --------- | -----: |
+| Accuracy  | 88.62% |
+| Precision | 82.22% |
+| Recall    | 86.05% |
+| F1-Score  | 84.09% |
 
-The application should not be used to:
+The MLP confusion matrix was:
 
-* Diagnose diabetes
-* Replace a doctor
-* Replace laboratory testing
-* Make medical treatment decisions
-* Determine medication or dosage
-
-For real medical concerns, users should consult a qualified healthcare professional.
+|                 | Predicted Negative | Predicted Positive |
+| --------------- | -----------------: | -----------------: |
+| Actual Negative |                 72 |                  8 |
+| Actual Positive |                  6 |                 37 |
 
 ---
 
-# 📚 Academic Purpose
+# 🔐 Model Persistence
 
-This project demonstrates an end-to-end machine learning workflow:
+Instead of retraining the model whenever the Streamlit application starts, the trained model is saved using Joblib.
+
+This provides several advantages:
+
+* Faster application startup
+* Consistent predictions
+* No need for model retraining during inference
+* Easy deployment
+* Separation between training and prediction
+
+---
+
+# 🧑‍💻 Application Workflow
+
+The complete project workflow can be summarized as:
 
 ```text
 Dataset
    ↓
+Data Understanding
+   ↓
 Exploratory Data Analysis
    ↓
-Data Cleaning
+Suspicious Value Detection
    ↓
 Missing Value Treatment
+   ↓
+Outlier Analysis
    ↓
 Feature Scaling
    ↓
 Train/Test Split
    ↓
-Model Training
+Multiple ML Models
+   ↓
+MLP Model
+   ↓
+Model Evaluation
    ↓
 Model Comparison
    ↓
 Hyperparameter Tuning
    ↓
-Final Model
+Final Random Forest
    ↓
-Model Serialization
+Model Saving
    ↓
-Streamlit Deployment
+Streamlit Application
+   ↓
+Streamlit Cloud Deployment
 ```
 
 ---
 
+# ⚠️ Important Disclaimer
 
+DiabDetect is an **academic machine learning project** intended for educational and demonstration purposes.
 
-# 🔗 Project Links
+The prediction generated by the application is an estimated machine-learning output and **must not be considered a medical diagnosis**.
 
-### GitHub Repository
-
-👉 [https://github.com/priyanshupratikg/ML_Projects](https://github.com/priyanshupratikg/ML_Projects)
-
-### Diabetes Prediction Application – PC
-
-👉 [https://obscurity-hardly-wanted.ngrok-free.dev](https://obscurity-hardly-wanted.ngrok-free.dev)
-
-### Diabetes Prediction Application – Mobile
-
-👉 [https://obscurity-hardly-wanted.ngrok-free.dev](https://obscurity-hardly-wanted.ngrok-free.dev)
+The application should not be used as a substitute for professional medical advice, clinical examination, laboratory testing, or consultation with a qualified healthcare professional.
 
 ---
 
-# ⭐ Project Highlights
+# 🎓 Academic Purpose
 
-* End-to-end machine learning project
-* Real-world diabetes dataset
-* Data preprocessing pipeline
-* Suspicious-zero handling
-* Median imputation
-* Standard scaling
-* Multiple ML model comparison
-* Tuned Random Forest classifier
-* Serialized ML model
-* Interactive Streamlit interface
-* Input validation
-* Gender-aware pregnancy field
-* Responsive PC and mobile interface
-* GitHub version control
-* Temporary public deployment using ngrok
+This project was developed as part of the **Machine Learning / Python Web Programming (MLPWP) Lab Assignment**.
 
+The project demonstrates practical implementation of:
 
-# 👥 Team Vajra
+* Data preprocessing
+* Exploratory data analysis
+* Supervised machine learning
+* Classification
+* Neural networks
+* Model evaluation
+* Hyperparameter tuning
+* Model persistence
+* Web application development
+* Cloud deployment
 
-This project was developed by **Team Vajra**.
+---
 
-| Name | Registration Number |
-|---|---:|
-| **Priyanshu Pratik** | 2341016436 |
-| **Tushar Mallick** | 2341013092 |
-| **Aditya Prasad Mishra** | 2341013147 |
-| **Sarbajeet Sahoo** | 2341019148 |
+# ⭐ Key Highlights
 
+### 🔹 Complete ML Pipeline
 
+The project covers the complete journey from raw dataset to deployed application.
+
+### 🔹 Multiple Models
+
+Several traditional machine learning algorithms were compared rather than relying on a single model.
+
+### 🔹 Neural Network
+
+A Multilayer Perceptron was implemented and evaluated.
+
+### 🔹 Robust Preprocessing
+
+Suspicious zero values were identified and handled through median imputation.
+
+### 🔹 Model Comparison
+
+Models were evaluated using accuracy, precision, recall, F1-score, and ROC-AUC.
+
+### 🔹 Final Model
+
+A tuned Random Forest classifier was selected for the deployed application.
+
+### 🔹 Cloud Deployment
+
+The final application is publicly accessible through Streamlit Community Cloud.
+
+---
+
+# 🚀 Try DiabDetect
+
+## Live Application
+
+[https://diabdetect-vajra.streamlit.app/](https://diabdetect-vajra.streamlit.app/)
+
+---
+
+# 📚 Future Improvements
+
+Possible future improvements include:
+
+* Testing additional datasets
+* Larger and more diverse clinical datasets
+* Additional feature engineering
+* More extensive hyperparameter optimization
+* Cross-validation-based model comparison
+* Explainable AI techniques such as SHAP
+* Improved calibration of predicted probabilities
+* Database integration
+* User authentication
+* Prediction history
+* More comprehensive clinical decision-support features
+
+---
+
+# 📌 Conclusion
+
+DiabDetect demonstrates how machine learning can be used to develop a complete diabetes-risk classification application.
+
+The project combines data preprocessing, exploratory analysis, traditional machine learning algorithms, neural-network modeling, model comparison, model persistence, and cloud deployment into a single end-to-end system.
+
+The final tuned Random Forest model provides the prediction engine for the deployed Streamlit application.
+
+### 🌐 Live Demo
+
+[https://diabdetect-vajra.streamlit.app/](https://diabdetect-vajra.streamlit.app/)
+
+---
+
+## 👥 Team Vajra
+
+**Priyanshu Partik**
+**Tushar Mallick**
+**Aditya Prasad Mishra**
+**Sarbajeet Sahoo**
+
+---
+
+### 🩺 DiabDetect
+
+**Intelligent Diabetes Risk Prediction**
+**By Vajra**
+
+```
+
+### One important thing
+
+For GitHub, I'd recommend putting the **live app link right at the very top** of the README as a prominent **"🚀 Live Demo"** section. That way, your professor can open the repository and immediately click through to the working application.
+
+Your actual live link is:
+
+:contentReference[oaicite:2]{index=2}
+
+And because your app is now hosted on Streamlit Cloud, **you can close VS Code and even shut down your laptop—the deployed link remains independently accessible.**
+```
